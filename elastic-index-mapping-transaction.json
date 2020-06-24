@@ -1,0 +1,10 @@
+{
+  "properties": {
+    "id": {"type": "keyword"}, 
+    "user_from": {"type": "keyword"}, 
+    "operation_type": {"type": "keyword"}, 
+    "user_to": {"type": "keyword"},
+    "amount": {"type": "integer"},
+    "timestamp": {"type": "date"}
+  }
+}

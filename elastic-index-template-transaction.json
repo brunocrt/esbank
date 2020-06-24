@@ -1,0 +1,6 @@
+{
+    "index_patterns": ["esbank_transactions"],
+    "settings": {
+      "number_of_shards": 1
+    }
+  }
