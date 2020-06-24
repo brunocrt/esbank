@@ -1,9 +1,12 @@
 # esbank
 Event Streaming Bank
 
-This is an sample banking system application to demonstrate event streaming architecture using Apache kafka with kafka Streams API.
+This is an fictional banking system application to demonstrate event streaming architecture using Apache kafka with kafka Streams API.
 
-For more details about Kafka Streams API check the official documentation on kafka.apache.org.
+For more details about Kafka Streams API check the official documentation on [kafka.apache.org!](http://kafka.apache.org).
+
+# Application overview
+[ESBank Architecture!](https://github.com/brunocrt/esbank/esbank-overview.png)
 
 # Main components
 
@@ -16,6 +19,7 @@ For more details about Kafka Streams API check the official documentation on kaf
 **MONITORS** - Monitor any kind of event
 
 [clients] -> [connectors] -> [-- Processors --] <- [connectors] <- [monitors]
+
 
 ## ESBank Clients (Apps)
 
