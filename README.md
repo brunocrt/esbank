@@ -6,7 +6,7 @@ This is an fictional banking system application to demonstrate event streaming a
 For more details about Kafka Streams API check the official documentation on [kafka.apache.org!](http://kafka.apache.org).
 
 # Application overview
-[ESBank Architecture!](https://github.com/brunocrt/esbank/esbank-overview.png)
+![ESBank Architecture](esbank-overview.png)
 
 # Main components
 
