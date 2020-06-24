@@ -1,16 +1,18 @@
-# esbank
+# ESBank
 Event Streaming Bank
 
 This is an fictional banking system application to demonstrate event streaming architecture using Apache kafka with kafka Streams API.
-
 For more details about Kafka Streams API check the official documentation on [kafka.apache.org!](http://kafka.apache.org).
 
-# Application overview (initial approach [v1])
+# Application overview
+Bellow is the diagram the represents the initial implementation of the ESBank solution.
 
 ![ESBank Simplified Initial Architecture](esbank-simplified-view.png)
+
 This is the simplified vision of the initial application architecture.
 
 ![ESBank Detailed Initial Architecture](esbank-overview.png)
+
 This diagram presents the initial approach for starting the project with just on client (for generate transaction messages) and two processors (one for filtering using Kafka Streams API and other for creating new views using ksqlDB), additionally I started building a monitor using Kafka Connect embbed into ksqlDB to export data to Elasticsearch. 
 
 The main idea is to starting from this point to reach the state where we can implement all the main components described bellow.
