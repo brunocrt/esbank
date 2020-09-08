@@ -88,7 +88,10 @@ The main idea is to starting from this point to reach the state where we can imp
     
 - KSQL List all topics
 
-    `list all topics;`
+    `SHOW TOPICS;`
+
+- Show the contents of a Kafka topic
+    `PRINT 'topic_name' FROM BEGINNING;`
     
 - KSQL - create KSQL streams from file
 
@@ -112,13 +115,15 @@ The main idea is to starting from this point to reach the state where we can imp
 
     `SELECT * FROM income_stream EMIT CHANGES;`
 
-- KSQL - Query a KSQL Stream
-
-    `SELECT * FROM income_stream EMIT CHANGES;`
-
 - KSQL - Insert into a KSQL Stream
 
     `INSERT INTO transactions_stream VALUES ('9999',9999,'user-100','TRANSFER','user-200',1000,1591409776299);`
+
+- KSQL - Drop a KSQL Stream
+
+    You do need to terminate all read/write queries attached to the stream first before drop the stream as the following example:
+    `TERMINATE ctas_anomaly_11;`
+    `DROP stream transactions_stream;`
 
 - KSQL - SELECT from KSQL Table
 
@@ -132,3 +137,9 @@ The main idea is to starting from this point to reach the state where we can imp
 
 - ELASTICSEARCH - View templates
     `curl -XGET http://localhost:9200/_cat/templates?v`
+
+
+# Resources
+
+- KSQL SQL queries  
+    More information about KSQL queries can be found at https://cnfl.io/queries

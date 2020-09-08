@@ -1,0 +1,3 @@
+docker exec -it broker kafka-topics --bootstrap-server broker:29092 --create --partitions 1 --replication-factor 1 --topic esbank_transactions
+docker exec -it broker kafka-topics --bootstrap-server broker:29092 --create --partitions 1 --replication-factor 1 --topic withdrawals
+docker exec -it broker kafka-topics --bootstrap-server broker:29092 --create --partitions 1 --replication-factor 1 --topic deposits

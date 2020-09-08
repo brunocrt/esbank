@@ -1,6 +1,8 @@
 # Build products
 target/
 docs/_build/
+txn-generator/target/
+txn-processor/target/
 
 # Javadocs
 dist/

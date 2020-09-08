@@ -14,9 +14,23 @@ public class TxnGenerator {
     static final int MAX_TXN_VALUE = 1000;
     static final int TOTAL_TXNS = 1000;
 
+    static String defaultUserFrom = null;
+    static int startSequence = 0;
+
     public static void main(String args[]) {
 
         logger.info("Starting TxnGenerator...");
+
+
+        if(args.length > 0) {
+            System.out.println("Starting sequence from: "+args[0]);
+            startSequence = Integer.parseInt(args[0]);
+        }
+
+        if(args.length > 1) {
+            System.out.println("Setting default user 'from' to: "+args[1]);
+            defaultUserFrom = args[1];
+        }
 
         Properties props = new Properties();
         props.put(ProducerConfig.CLIENT_ID_CONFIG, "TxnGenerator");
@@ -34,13 +48,16 @@ public class TxnGenerator {
         logger.info("Gernerating transactions data...");
         for(int i=0; i < TOTAL_TXNS; i++) {
 
-            String key = "ID-"+String.valueOf(i);
-            String value = buildTransactionData(key,
-                                        users.get(getRandom(users.size())),
-                                        users.get(getRandom(users.size())),
-                                        String.valueOf(getRandom(MAX_TXN_VALUE)));
+            int sequenceNumber = i + startSequence;
+
+            String key = "ID-"+String.valueOf(sequenceNumber);
+            String value = buildTransactionData(String.valueOf(sequenceNumber),
+                                        getUser(users, true),
+                                        getUser(users, false),
+                                        getAmount());
             // send transaction
             logger.info("sending message key: {} ", key);
+            // ID-1,1,user-1,TRANSFER,user-2,1000,1599589626187
             producer.send(new ProducerRecord<>("esbank_transactions", key, value));
 
 
@@ -51,14 +68,25 @@ public class TxnGenerator {
         
     }
 
-
-    public static String buildTransactionData(String id, String userFrom, String userTo, String amount) {
-        return id + "," +       // 0, txn id
+    public static String buildTransactionData(String sequence, String userFrom, String userTo, String amount) {
+        return sequence + "," +  // 0, txn sequence
               userFrom + "," +  // 1, txn origin
               "TRANSFER," +     // 2, operation type
               userTo + "," +    // 3, txn destination
               amount + "," +    // 4, operation amount
               new Date().getTime();  // 5, operation timestamp
+    }
+
+    public static String getAmount() {
+        return String.valueOf(getRandom(MAX_TXN_VALUE));
+    }
+
+    public static String getUser(List<String> users, boolean allowDefaultUser) {
+        if(allowDefaultUser && defaultUserFrom != null) {
+            return defaultUserFrom;
+        } else {
+            return users.get(getRandom(users.size()));
+        }
     }
     
     public static List<String> generateUsers(int totalUsers) {

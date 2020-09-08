@@ -1,0 +1,1 @@
+mvn exec:java -Dexec.mainClass=org.esbank.client.TxnGenerator -Dexec.args="5000 user-5"
