@@ -30,26 +30,26 @@ The main idea is to starting from this point to reach the state where we can imp
 [clients] -> [connectors] -> [-- Processors --] <- [connectors] <- [monitors]
 
 
-## ESBank Clients (Apps)
+### ESBank Clients (Apps)
 
 - ESBank Transaction Generator - Command line client for generate random bank transactions
 
 - ESBank Internet Banking - Web client using React - **future**
 
-## ESBank Connectors (API)
+### ESBank Connectors (API)
 
 - ESBank Monitor Connector - Elasticsearch Kafka Connect
 
 - ESBank Client Connector - Custom REST API using Java/Quarkus - **future**
 
-## ESBank Processors (Core)
+### ESBank Processors (Core)
 
 - ESBank Event Store - Apache Kafka Broker components
 - ESBank Transaction Manager - Spring Cloud Stream App using Kafka Streams
 - ESBank Fraud Detector - KSQLdb Table
 
 
-## ESBank Monitors (Dashboard)
+### ESBank Monitors (Dashboard)
 
 - ESBank Transaction Dashboard - Elasticsearch + Kibana
 
