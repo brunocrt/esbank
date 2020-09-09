@@ -23,12 +23,12 @@ public class TxnGenerator {
 
 
         if(args.length > 0) {
-            System.out.println("Starting sequence from: "+args[0]);
+            logger.info("Starting sequence from: "+args[0]);
             startSequence = Integer.parseInt(args[0]);
         }
 
         if(args.length > 1) {
-            System.out.println("Setting default user 'from' to: "+args[1]);
+            logger.info("Setting default user 'from' to: "+args[1]);
             defaultUserFrom = args[1];
         }
 
