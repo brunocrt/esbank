@@ -17,7 +17,7 @@ public class TxnGenerator {
     static String defaultUserFrom = null;
     static int startSequence = 0;
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         logger.info("Starting TxnGenerator...");
 
@@ -50,7 +50,7 @@ public class TxnGenerator {
 
             int sequenceNumber = i + startSequence;
 
-            String key = "ID-"+String.valueOf(sequenceNumber);
+            String key = "ID-" + sequenceNumber;
             String value = buildTransactionData(String.valueOf(sequenceNumber),
                                         getUser(users, true),
                                         getUser(users, false),
@@ -90,7 +90,7 @@ public class TxnGenerator {
     }
     
     public static List<String> generateUsers(int totalUsers) {
-        List<String> users = new ArrayList<String>();
+        List<String> users = new ArrayList<>();
         for(int i=0; i<totalUsers; i++) {
             users.add("user-"+i);
         }
