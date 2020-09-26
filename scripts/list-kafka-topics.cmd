@@ -1,0 +1,1 @@
+docker exec -it broker kafka-topics --bootstrap-server broker:29092 --list
