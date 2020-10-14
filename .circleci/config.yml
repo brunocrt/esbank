@@ -8,8 +8,7 @@ jobs:
       - checkout
       - run:
           name: Analyze on SonarCloud
-          command: cd txn-processor && mvn verify sonar:sonar
-
+          command: cd txn-processor && mvn clean compile
 workflows:
   main:
     jobs:
