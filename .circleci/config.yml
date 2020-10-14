@@ -14,4 +14,7 @@ workflows:
   main:
     jobs:
       - build:
-          context: SonarCloud
+          filters:
+            branches:
+              ignore:
+                - develop
